@@ -226,6 +226,18 @@ select:focus-visible,textarea:focus-visible{
   color:#fff;opacity:0;transform:translateY(-6px);transition:.3s;
 }
 .project:hover .open-pill{opacity:1;transform:translateY(0)}
+/* selo de status (canto superior esquerdo do print) */
+.thumb .status{
+  position:absolute;z-index:2;top:14px;left:14px;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 12px;border-radius:999px;font:600 12px var(--body);
+  background:rgba(8,8,15,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.18);color:#fff;
+}
+.thumb .status .sdot{width:7px;height:7px;border-radius:50%;flex:none}
+.status-live .sdot{background:#25d366;box-shadow:0 0 10px #25d366}
+.status-concept{color:#cabdff;border-color:rgba(168,85,247,.32);background:rgba(18,17,29,.66)}
+.status-concept .sdot{background:var(--g2);box-shadow:0 0 10px var(--g2)}
 /* paletas (fallback enquanto o print carrega) */
 .g-1{background:linear-gradient(135deg,#5b3df6,#a855f7)}
 .g-2{background:linear-gradient(135deg,#0ea5e9,#4f7cf6)}
@@ -550,13 +562,14 @@ select:focus-visible,textarea:focus-visible{
       <div class="section-head">
         <span class="eyebrow reveal">Projetos</span>
         <h2 class="reveal">Trabalhos selecionados</h2>
-        <p class="reveal">Três projetos no ar — e mais a caminho. Clique em qualquer um para ver a prévia e abrir o site em uma nova aba.</p>
+        <p class="reveal">Projetos no ar para clientes — e alguns modelos que criei para nichos específicos. Clique em qualquer um para ver a prévia e abrir em uma nova aba.</p>
       </div>
 
       <div class="filters reveal">
         <button class="filter-btn active" data-filter="all">Todos</button>
         <button class="filter-btn" data-filter="landing">Landing pages</button>
         <button class="filter-btn" data-filter="site">Sites</button>
+        <button class="filter-btn" data-filter="modelo">Modelos</button>
       </div>
 
       <!-- Seus projetos. Para adicionar outro, copie um bloco .project e troque data-url, data-title, a tag e o texto. -->
@@ -567,6 +580,7 @@ select:focus-visible,textarea:focus-visible{
                 data-title="Thamyres Sanflorian — Psicóloga">
           <span class="thumb g-1">
             <span class="mark">T</span>
+            <span class="status status-live"><span class="sdot"></span>No ar</span>
             <img class="shot" alt="Prévia do site da psicóloga Thamyres Sanflorian" loading="lazy">
             <span class="open-pill">Ver prévia ↗</span>
           </span>
@@ -580,29 +594,12 @@ select:focus-visible,textarea:focus-visible{
           </span>
         </button>
 
-        <button class="project reveal" data-category="site"
-                data-url="https://www.vemguto.com.br"
-                data-title="VemGuto — Reviews de casa inteligente">
-          <span class="thumb g-2">
-            <span class="mark">V</span>
-            <img class="shot" alt="Prévia do site VemGuto" loading="lazy">
-            <span class="open-pill">Ver prévia ↗</span>
-          </span>
-          <span class="p-body">
-            <span class="p-tag">Site · Blog</span>
-            <h3>VemGuto</h3>
-            <p>Site de conteúdo e reviews de casa inteligente, com categorias, blog e curadoria de produtos.</p>
-            <span class="p-cta">Ver projeto
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </span>
-        </button>
-
         <button class="project reveal" data-category="landing"
                 data-url="https://www.bcguindastes.com.br"
                 data-title="BC Locações — Guindastes e Muncks">
           <span class="thumb g-3">
             <span class="mark">B</span>
+            <span class="status status-live"><span class="sdot"></span>No ar</span>
             <img class="shot" alt="Prévia do site da BC Locações" loading="lazy">
             <span class="open-pill">Ver prévia ↗</span>
           </span>
@@ -610,6 +607,63 @@ select:focus-visible,textarea:focus-visible{
             <span class="p-tag">Landing page · Indústria</span>
             <h3>BC Locações</h3>
             <p>Landing page para empresa de locação de guindastes e caminhões munck, com +30 anos de mercado, cases de operação e orçamento direto pelo WhatsApp.</p>
+            <span class="p-cta">Ver projeto
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </button>
+
+        <button class="project reveal" data-category="landing modelo"
+                data-url="https://lpcrechedog.vercel.app"
+                data-title="Modelo — Creche &amp; Hotel Pet">
+          <span class="thumb g-4">
+            <span class="mark">C</span>
+            <span class="status status-concept"><span class="sdot"></span>Conceito</span>
+            <img class="shot" alt="Prévia do modelo de creche pet" loading="lazy">
+            <span class="open-pill">Ver prévia ↗</span>
+          </span>
+          <span class="p-body">
+            <span class="p-tag">Modelo · Creche pet</span>
+            <h3>Creche Pet</h3>
+            <p>Modelo de landing page para creche e hotel pet: planos de diária, fotos do espaço e reserva direto pelo WhatsApp.</p>
+            <span class="p-cta">Ver modelo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </button>
+
+        <button class="project reveal" data-category="site modelo"
+                data-url="https://roxinhoacai.vercel.app"
+                data-title="Modelo — Roxinho Açaí">
+          <span class="thumb g-6">
+            <span class="mark">R</span>
+            <span class="status status-concept"><span class="sdot"></span>Conceito</span>
+            <img class="shot" alt="Prévia do modelo de açaiteria Roxinho Açaí" loading="lazy">
+            <span class="open-pill">Ver prévia ↗</span>
+          </span>
+          <span class="p-body">
+            <span class="p-tag">Modelo · Açaiteria</span>
+            <h3>Roxinho Açaí</h3>
+            <p>Modelo de site para açaiteria: cardápio, montagem do copo e pedido pelo WhatsApp ou delivery.</p>
+            <span class="p-cta">Ver modelo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </button>
+
+        <button class="project reveal" data-category="landing"
+                data-url="https://lpadv-pi.vercel.app"
+                data-title="lpadv — Advocacia">
+          <span class="thumb g-5">
+            <span class="mark">A</span>
+            <span class="status status-concept"><span class="sdot"></span>Conceito</span>
+            <img class="shot" alt="Prévia do site lpadv" loading="lazy">
+            <span class="open-pill">Ver prévia ↗</span>
+          </span>
+          <span class="p-body">
+            <span class="p-tag">Landing page · Advocacia</span>
+            <h3>Vance & Aragão Advocacia</h3>
+            <p>Landing page profissional desenvolvida para serviços de advocacia, com foco em conversão e contato direto.</p>
             <span class="p-cta">Ver projeto
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
@@ -626,7 +680,7 @@ select:focus-visible,textarea:focus-visible{
       <div class="about-visual reveal">
         <div class="portrait">
           <!-- Troque pelo seu retrato: coloque <img src="sua-foto.jpg" alt="Guto"> aqui dentro -->
-          <span class="portrait-mono" aria-hidden="true"></span>
+           <img src="assets/img/sobre.webp" alt="Foto Guto">
         </div>
         <div class="about-badges">
           <span class="badge">Eng. Eletricista · PUC-Campinas</span>
@@ -637,9 +691,9 @@ select:focus-visible,textarea:focus-visible{
       <div class="about-copy">
         <span class="eyebrow reveal">Sobre</span>
         <h2 class="reveal">Prazer, eu sou o <em class="grad">Guto</em>.</h2>
-        <p class="reveal">Augusto Marconato Girio, engenheiro eletricista pela PUC-Campinas e apaixonado por tecnologia desde sempre. Minha experiência começou no código: automações em Python para eliminar tarefas repetitivas e automações web com HTML, CSS e JavaScript para fazer processos rodarem no piloto automático.</p>
+        <p class="reveal">Minha jornada no código começou com um objetivo claro: eliminar tarefas repetitivas. Criando automações em Python e desenvolvendo soluções web com HTML, CSS e JavaScript, descobri como fazer processos complexos rodarem no piloto automático. Foi justamente nessa intersecção entre lógica e eficiência que me apaixonei pelo desenvolvimento web.</p>
         <blockquote class="about-quote reveal">Foi automatizando que me apaixonei pelo desenvolvimento web — e decidi transformar isso em carreira.</blockquote>
-        <p class="reveal">Hoje uno essa base técnica com design para criar landing pages e sites sob medida: rápidos, bem construídos e fáceis de usar. Um bom site, pra mim, é estrutura, performance e clareza trabalhando juntas para fazer o seu projeto crescer.</p>
+        <p class="reveal">Hoje, uno minha sólida base técnica de engenharia ao design estratégico para criar landing pages e sites sob medida. Para mim, um site de alto nível vai além da estética: é a combinação exata de estrutura inteligente, performance impecável e clareza visual trabalhando juntas para impulsionar o crescimento do seu negócio.</p>
         <div class="stack reveal">
           <span class="stack-title">Com o que eu trabalho</span>
           <ul class="stack-list">
