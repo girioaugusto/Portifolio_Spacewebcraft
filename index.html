@@ -6,6 +6,16 @@
 <title>spacewebcraft — portfólio</title>
 <meta name="description" content="Crio landing pages e sites sob medida, do conceito ao deploy. Veja os projetos." />
 
+<!-- Anti-flash: esconde os elementos animados ANTES da 1ª pintura.
+     Só age quando há JS e o usuário não pediu menos movimento. Se o GSAP
+     não carregar, esta classe é removida depois e tudo aparece normalmente. -->
+<script>
+  try{
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches)
+      document.documentElement.classList.add('js-anim');
+  }catch(e){}
+</script>
+
 <!-- Fontes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,11 +183,11 @@ select:focus-visible,textarea:focus-visible{
 .hero{min-height:100svh;display:flex;align-items:center;padding-top:90px}
 .hero-inner{max-width:880px}
 .hero h1{
-  font-family:var(--display);font-weight:700;letter-spacing:-.03em;
-  font-size:clamp(2.7rem,8.2vw,5.6rem);line-height:1.02;margin:22px 0 24px;
+  font-family:var(--display);font-weight:700;letter-spacing:-.02em;
+  font-size:clamp(2.3rem,5.2vw,4.2rem);line-height:1.08;margin:22px 0 24px;
 }
 .hero h1 .line{display:block;overflow:hidden}
-.hero h1 .line>span{display:block}
+.hero h1 .line>span{display:block;text-wrap:balance}
 .hero p.lead{color:var(--muted);font-size:clamp(1.05rem,2vw,1.3rem);max-width:60ch}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
 .scroll-hint{
@@ -548,6 +558,16 @@ select:focus-visible,textarea:focus-visible{
 @media(max-width:820px){
   .paths,.diffs,.steps{grid-template-columns:1fr}
 }
+
+/* ============================================================
+   ANTI-FLASH (entrada + reveal no scroll)
+   Esconde os alvos só quando o JS+GSAP realmente vão animá-los.
+   .js-anim entra no <head> antes da 1ª pintura; sem GSAP/reduce-motion,
+   nada fica escondido (degrada com elegância).
+   ============================================================ */
+.js-anim [data-anim],
+.js-anim .reveal{opacity:0}
+.js-anim .hero h1 .line>span{transform:translateY(115%)}
 </style>
 </head>
 <body>
@@ -596,7 +616,7 @@ select:focus-visible,textarea:focus-visible{
       <span class="eyebrow" data-anim>Portfólio · spacewebcraft</span>
       <h1>
         <span class="line"><span data-anim>Sua nova landing page no ar.</span></span>
-        <span class="line"><span data-anim>Pronta ou <em class="grad">100% exclusiva</em>.</span></span>
+        <span class="line"><span data-anim>Modelos Prontos ou <em class="grad">100% exclusivos</em>.</span></span>
       </h1>
       <p class="lead" data-anim>Design feito para impressionar e converter. Explore os projetos abaixo e descubra o modelo ideal para o seu negócio.</p>
       <div class="hero-cta" data-anim>
@@ -794,7 +814,7 @@ select:focus-visible,textarea:focus-visible{
             </span>
             <span class="p-body">
               <span class="p-tag">Modelo · Psicologia</span>
-              <h3>Psicologia · 01</h3>
+              <h3>Psicologia · Modelo 1</h3>
               <p>Versão clean e acolhedora: abordagem, sobre e agendamento direto pelo WhatsApp.</p>
               <span class="p-note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -816,7 +836,7 @@ select:focus-visible,textarea:focus-visible{
             </span>
             <span class="p-body">
               <span class="p-tag">Modelo · Psicologia</span>
-              <h3>Psicologia · 02</h3>
+              <h3>Psicologia · Modelo 2</h3>
               <p>Versão com destaque para especialidades e depoimentos de pacientes.</p>
               <span class="p-note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -838,7 +858,7 @@ select:focus-visible,textarea:focus-visible{
             </span>
             <span class="p-body">
               <span class="p-tag">Modelo · Psicologia</span>
-              <h3>Psicologia · 03</h3>
+              <h3>Psicologia · Modelo 3</h3>
               <p>Versão mais visual, com foco na chamada para agendamento.</p>
               <span class="p-note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -876,7 +896,7 @@ select:focus-visible,textarea:focus-visible{
             </span>
             <span class="p-body">
               <span class="p-tag">Modelo · Advocacia</span>
-              <h3>Advocacia · Institucional</h3>
+              <h3>Advocacia · Modelo 1</h3>
               <p>Design sóbrio e direto, focado em transmitir credibilidade e listar áreas de atuação.</p>
               <span class="p-note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -898,7 +918,7 @@ select:focus-visible,textarea:focus-visible{
             </span>
             <span class="p-body">
               <span class="p-tag">Modelo · Advocacia</span>
-              <h3>Advocacia · Dinâmico</h3>
+              <h3>Advocacia · Modelo 2</h3>
               <p>Layout moderno com foco em conversão rápida e contato via WhatsApp.</p>
               <span class="p-note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -920,7 +940,7 @@ select:focus-visible,textarea:focus-visible{
             </span>
             <span class="p-body">
               <span class="p-tag">Modelo · Advocacia</span>
-              <h3>Advocacia · Especialista</h3>
+              <h3>Advocacia · Modelo 3</h3>
               <p>Estrutura focada em construir autoridade para advogados autônomos e especialistas.</p>
               <span class="p-note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -950,7 +970,7 @@ select:focus-visible,textarea:focus-visible{
       <div class="about-visual reveal">
         <div class="portrait">
           <!-- Troque pelo seu retrato: coloque <img src="sua-foto.jpg" alt="Guto"> aqui dentro -->
-           <img src="assets/img/sobre.webp" alt="Foto Guto">
+           <img src="assets/img/sobre_mim.webp" alt="Foto Guto">
         </div>
         <div class="about-badges">
           <span class="badge">Eng. Eletricista · PUC-Campinas</span>
@@ -960,7 +980,7 @@ select:focus-visible,textarea:focus-visible{
 
       <div class="about-copy">
         <span class="eyebrow reveal">Sobre</span>
-        <h2 class="reveal">Prazer, eu sou o <em class="grad">Guto</em>.</h2>
+        <h2 class="reveal">Prazer, eu sou o <em class="grad">Augusto</em>.</h2>
         <p class="reveal">Minha jornada no código começou com um objetivo claro: eliminar tarefas repetitivas. Criando automações em Python e desenvolvendo soluções web com HTML, CSS e JavaScript, descobri como fazer processos complexos rodarem no piloto automático. Foi justamente nessa intersecção entre lógica e eficiência que me apaixonei pelo desenvolvimento web.</p>
         <blockquote class="about-quote reveal">Foi automatizando que me apaixonei pelo desenvolvimento web — e decidi transformar isso em carreira.</blockquote>
         <p class="reveal">Hoje, uno minha sólida base técnica de engenharia ao design estratégico para criar landing pages e sites sob medida. Para mim, um site de alto nível vai além da estética: é a combinação exata de estrutura inteligente, performance impecável e clareza visual trabalhando juntas para impulsionar o crescimento do seu negócio.</p>
@@ -1119,6 +1139,9 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const HAS_GSAP = typeof window.gsap !== 'undefined';
 const HAS_THREE = typeof window.THREE !== 'undefined';
 
+// Se o GSAP não carregou, não deixa nada escondido pelo anti-flash.
+if (!HAS_GSAP) document.documentElement.classList.remove('js-anim');
+
 /* ============================================================
    NAV — efeito de scroll
    ============================================================ */
@@ -1236,17 +1259,22 @@ if (HAS_GSAP){
   if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
 
   if (!REDUCED){
-    // entrada do hero
+    // entrada do hero — começa escondido (via CSS .js-anim) e anima PRA DENTRO.
+    // usar set()+to() em vez de from() evita o "flash" de aparecer e sumir.
+    gsap.set('[data-anim]', { opacity:0, y:24 });
+    gsap.set('.hero h1 .line>span', { yPercent:115 });
+
     gsap.timeline({ defaults:{ ease:'power4.out' } })
-      .from('[data-anim]', { y:24, opacity:0, duration:.9, stagger:.09 })
-      .from('.hero h1 .line>span', { yPercent:115, duration:1, stagger:.12 }, 0.1)
+      .to('[data-anim]', { y:0, opacity:1, duration:.9, stagger:.09 })
+      .to('.hero h1 .line>span', { yPercent:0, duration:1, stagger:.12 }, 0.1)
       .from('.nav', { y:-30, opacity:0, duration:.8 }, 0);
 
     // reveals no scroll
     if (window.ScrollTrigger){
+      gsap.set('.reveal', { opacity:0, y:42 });
       window.ScrollTrigger.batch('.reveal', {
         start:'top 86%',
-        onEnter: els => gsap.from(els, { y:42, opacity:0, duration:.75, stagger:.09, ease:'power3.out', overwrite:true })
+        onEnter: els => gsap.to(els, { y:0, opacity:1, duration:.75, stagger:.09, ease:'power3.out', overwrite:true })
       });
 
       // leve parallax no conteúdo do hero
@@ -1254,6 +1282,10 @@ if (HAS_GSAP){
         yPercent:-7, opacity:.6, ease:'none',
         scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true }
       });
+    } else {
+      // Sem ScrollTrigger não dá pra animar no scroll: mostra os reveals.
+      gsap.set('.reveal', { opacity:1, y:0 });
+      document.documentElement.classList.remove('js-anim');
     }
   }
 
@@ -1297,21 +1329,34 @@ filterBtns.forEach(btn => {
 function shotURL(url, w){
   return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${w||1280}`;
 }
-// na 1ª visita o serviço pode devolver uma imagem "gerando…";
-// recarregamos algumas vezes até o print ficar pronto (depois fica em cache).
+// na 1ª visita o serviço pode devolver uma imagem "gerando…" (pequena);
+// recarregamos SÓ enquanto ainda parecer o placeholder e paramos quando o
+// print de verdade chega — assim a miniatura não fica piscando.
 function loadShot(img, url, w){
-  const src = shotURL(url, w);
+  const width = w || 1280;
+  const base  = shotURL(url, width);
   const token = (img.dataset.shotToken = String(Date.now() + Math.random()));
   let tries = 0;
-  img.onload = () => {
-    img.classList.add('loaded');
-    if (tries < 3 && img.dataset.shotToken === token){
-      tries++;
-      setTimeout(() => { if (img.dataset.shotToken === token) img.src = src + '&retry=' + tries; }, 3000);
-    }
+  const MAX = 5;
+
+  const retry = () => {
+    if (tries >= MAX) return;
+    tries++;
+    setTimeout(() => {
+      if (img.dataset.shotToken === token) img.src = base + '&retry=' + tries;
+    }, 3000);
   };
-  img.onerror = () => img.classList.remove('loaded');
-  img.src = src;
+
+  img.onload = () => {
+    if (img.dataset.shotToken !== token) return;            // pedido antigo
+    img.classList.add('loaded');
+    // o placeholder do mShots vem bem menor que a largura pedida.
+    const looksPlaceholder = img.naturalWidth > 0 && img.naturalWidth < width * 0.5;
+    if (looksPlaceholder) retry();                          // ainda gerando → tenta de novo
+  };
+  img.onerror = () => { img.classList.remove('loaded'); retry(); };
+
+  img.src = base;
 }
 
 /* ============================================================
