@@ -3,8 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>spacewebcraft — portfólio</title>
-<meta name="description" content="Crio landing pages e sites sob medida, do conceito ao deploy. Veja os projetos." />
+<title>spacewebcraft — sites para psicólogas | modelos prontos e sob medida</title>
+<meta name="description" content="Landing pages e sites para psicólogas: modelo pronto e acessível ou projeto sob medida. Agendamento pelo WhatsApp e prova social dentro das regras de publicidade do CFP." />
+
+<!-- Preview ao compartilhar o link (WhatsApp, Instagram, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="spacewebcraft — sites para psicólogas" />
+<meta property="og:description" content="Modelo pronto e acessível ou projeto sob medida — com agendamento pelo WhatsApp e adequados à ética do CFP." />
+<meta property="og:image" content="assets/img/sobre_mim.webp" />
 
 <!-- Favicon (spacewebcraft). O SVG embutido abaixo já funciona sozinho, sem
      precisar subir nenhum arquivo extra. As linhas seguintes só são usadas se
@@ -77,10 +83,17 @@ a{color:inherit}
 .bg-overlay{
   position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(900px 600px at 12% -8%, rgba(124,77,255,.20), transparent 60%),
-    radial-gradient(800px 600px at 100% 110%, rgba(79,124,246,.14), transparent 55%),
-    radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(8,8,15,.55) 100%);
+    radial-gradient(900px 600px at 12% -8%, rgba(124,77,255,.16), transparent 60%),
+    radial-gradient(800px 600px at 100% 110%, rgba(79,124,246,.11), transparent 55%),
+    radial-gradient(ellipse at 50% 45%, transparent 40%, rgba(8,8,15,.6) 100%),
+    linear-gradient(180deg, rgba(8,8,15,.28), rgba(8,8,15,.42));
 }
+
+/* legibilidade do texto sobre o campo de estrelas (halo suave = mini-scrim) */
+.hero h1,.hero .lead,.section-head h2,.section-head p,.eyebrow{
+  text-shadow:0 1px 8px rgba(6,6,12,.55), 0 2px 26px rgba(6,6,12,.55);
+}
+.grad{text-shadow:none}
 
 /* camadas: fundo < conteúdo < menu mobile < nav < flutuante < modal */
 main,.site-footer{position:relative;z-index:2}
@@ -109,6 +122,7 @@ main,.site-footer{position:relative;z-index:2}
 .grad{
   background:var(--brand);-webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;font-style:normal;
+  filter:drop-shadow(0 1px 12px rgba(6,6,12,.6));
 }
 
 /* ============================================================
@@ -194,9 +208,9 @@ select:focus-visible,textarea:focus-visible{
 .hero-inner{max-width:880px}
 .hero h1{
   font-family:var(--display);font-weight:700;letter-spacing:-.02em;
-  font-size:clamp(2.3rem,5.2vw,4.2rem);line-height:1.08;margin:22px 0 24px;
+  font-size:clamp(2.3rem,5.2vw,4.2rem);line-height:1.14;margin:22px 0 24px;
 }
-.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line{display:block;overflow:hidden;padding-block:.28em;margin-block:-.28em}
 .hero h1 .line>span{display:block;text-wrap:balance}
 .hero p.lead{color:var(--muted);font-size:clamp(1.05rem,2vw,1.3rem);max-width:60ch}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
@@ -223,6 +237,19 @@ select:focus-visible,textarea:focus-visible{
 .projects{
   display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:40px;
 }
+/* card-convite: preenche a grade e leva ao contato (não é .project, logo o JS ignora) */
+.cta-card{
+  border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:13px;padding:36px 26px;
+  background:linear-gradient(180deg,rgba(168,85,247,.09),rgba(79,124,246,.05));
+  border:1px dashed var(--border-strong);transition:border-color .25s,transform .25s;
+}
+.cta-card:hover{border-color:rgba(168,85,247,.55);transform:translateY(-3px)}
+.cta-card .cta-ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:rgba(168,85,247,.16);border:1px solid rgba(168,85,247,.32);color:#c8baff}
+.cta-card .cta-ic svg{width:26px;height:26px}
+.cta-card h3{font-family:var(--display);font-weight:600;font-size:1.2rem;color:#fff}
+.cta-card p{color:var(--muted);font-size:.92rem;max-width:28ch;margin:0}
+.cta-card .p-cta{justify-content:center;margin-top:2px}
 .project{
   position:relative;border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;
   background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
@@ -623,12 +650,12 @@ select:focus-visible,textarea:focus-visible{
   <!-- HERO -->
   <header class="hero">
     <div class="wrap hero-inner">
-      <span class="eyebrow" data-anim>Portfólio · spacewebcraft</span>
+      <span class="eyebrow" data-anim>Sites para psicólogas · spacewebcraft</span>
       <h1>
-        <span class="line"><span data-anim>Sua nova landing page no ar.</span></span>
-        <span class="line"><span data-anim>Modelos Prontos ou <em class="grad">100% exclusivos</em>.</span></span>
+        <span class="line"><span data-anim>Seu trabalho acolhe.</span></span>
+        <span class="line"><span data-anim>Seu <em class="grad">site</em> também deveria.</span></span>
       </h1>
-      <p class="lead" data-anim>Design feito para impressionar e converter. Explore os projetos abaixo e descubra o modelo ideal para o seu negócio.</p>
+      <p class="lead" data-anim>Landing pages e sites feitos para psicólogas: do modelo pronto e acessível ao projeto sob medida, com agendamento pelo WhatsApp e prova social dentro das regras de publicidade da profissão.</p>
       <div class="hero-cta" data-anim>
         <a href="#sob-medida" class="btn btn-primary">
           Ver projetos
@@ -648,7 +675,7 @@ select:focus-visible,textarea:focus-visible{
           <span class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4L12 3z" stroke-linejoin="round"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z" stroke-linejoin="round"/></svg></span>
           <span>
             <h3>Quero algo sob medida</h3>
-            <p>Projeto único, desenhado no seu gosto — do briefing ao deploy.</p>
+            <p>Projeto único, desenhado no seu gosto, do briefing ao deploy.</p>
             <span class="more">Ver projetos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </span>
         </a>
@@ -664,13 +691,39 @@ select:focus-visible,textarea:focus-visible{
     </div>
   </section>
 
+  <!-- DIFERENCIAL: FEITO PARA PSICÓLOGAS (compatível com o CFP) -->
+  <section class="section" id="cfp" style="padding-block:clamp(38px,6vh,68px)">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Feito para psicólogas</span>
+        <h2 class="reveal">Sites que já nascem dentro das regras do <em class="grad">CFP</em></h2>
+        <p class="reveal">A publicidade em psicologia tem regras próprias. Cada página aqui é pensada para atrair pacientes sem colocar o seu registro em risco.</p>
+      </div>
+
+      <div class="diffs reveal">
+        <div class="diff">
+          <span class="dico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.3 3.1 7.6 7.5 9 4.4-1.4 7.5-4.7 7.5-9V6L12 3z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <span><b>Dentro do Código de Ética</b><span>Sem depoimentos de pacientes e sem promessas de resultado. Alinahdos com a Nota Técnica CFP 1/2022.</span></span>
+        </div>
+        <div class="diff">
+          <span class="dico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6.5C19 16.65 12 21 12 21z"/></svg></span>
+          <span><b>Prova social do jeito certo</b><span>Confiança construída com credenciais, sigilo e clareza e não com relatos que expõem quem você atende.</span></span>
+        </div>
+        <div class="diff">
+          <span class="dico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M13 10h5M13 14h5M6.4 15.6a2.6 2.6 0 0 1 5.2 0"/></svg></span>
+          <span><b>Sua identificação correta</b><span>Nome, título de psicóloga e CRP apresentados como o Código de Ética exige.</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SOB MEDIDA -->
   <section class="section" id="sob-medida" style="padding-top:clamp(40px,7vh,80px)">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow reveal">Sob medida</span>
         <h2 class="reveal">Projetos sob medida</h2>
-        <p class="reveal">Cada página criada do zero, no gosto do cliente. Clique em qualquer projeto para ver a prévia e abrir em uma nova aba.</p>
+        <p class="reveal">Cada página criada do zero, no seu gosto e no seu ritmo. Aqui está uma psicóloga já no ar e o próximo case pode ser o seu. Clique para ver a prévia.</p>
       </div>
 
       <div class="diffs reveal">
@@ -710,81 +763,19 @@ select:focus-visible,textarea:focus-visible{
           </span>
         </button>
 
-        <button class="project reveal" data-category="landing"
-                data-url="https://www.bcguindastes.com.br"
-                data-title="BC Locações — Guindastes e Muncks">
-          <span class="thumb g-3">
-            <span class="mark">B</span>
-            <span class="status status-live"><span class="sdot"></span>No ar</span>
-            <img class="shot" alt="Prévia do site da BC Locações" loading="lazy">
-            <span class="open-pill">Ver prévia ↗</span>
+        <a class="cta-card reveal" href="#contato">
+          <span class="cta-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
           </span>
-          <span class="p-body">
-            <span class="p-tag">Landing page · Indústria</span>
-            <h3>BC Locações</h3>
-            <p>Landing page para empresa de locação de guindastes e caminhões munck, com +30 anos de mercado, cases de operação e orçamento direto pelo WhatsApp.</p>
-            <span class="p-cta">Ver projeto
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
+          <h3>Seu projeto sob medida</h3>
+          <p>O próximo case de psicologia no ar pode ser o seu — do briefing ao deploy.</p>
+          <span class="p-cta">Fazer um orçamento
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
-        </button>
+        </a>
 
-        <button class="project reveal" data-category="landing modelo"
-                data-url="https://lpcrechedog.vercel.app"
-                data-title="Modelo — Creche &amp; Hotel Pet">
-          <span class="thumb g-4">
-            <span class="mark">C</span>
-            <span class="status status-concept"><span class="sdot"></span>Conceito</span>
-            <img class="shot" alt="Prévia do modelo de creche pet" loading="lazy">
-            <span class="open-pill">Ver prévia ↗</span>
-          </span>
-          <span class="p-body">
-            <span class="p-tag">Landing page · Pet</span>
-            <h3>Creche Pet</h3>
-            <p>Landing page para creche e hotel pet: planos de diária, fotos do espaço e reserva pelo WhatsApp.</p>
-            <span class="p-cta">Ver projeto
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </span>
-        </button>
 
-        <button class="project reveal" data-category="site modelo"
-                data-url="https://roxinhoacai.vercel.app"
-                data-title="Modelo — Roxinho Açaí">
-          <span class="thumb g-6">
-            <span class="mark">R</span>
-            <span class="status status-concept"><span class="sdot"></span>Conceito</span>
-            <img class="shot" alt="Prévia do modelo de açaiteria Roxinho Açaí" loading="lazy">
-            <span class="open-pill">Ver prévia ↗</span>
-          </span>
-          <span class="p-body">
-            <span class="p-tag">Site · Açaiteria</span>
-            <h3>Roxinho Açaí</h3>
-            <p>Site para açaiteria: cardápio, montagem do copo e pedido pelo WhatsApp ou delivery.</p>
-            <span class="p-cta">Ver projeto
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </span>
-        </button>
 
-        <button class="project reveal" data-category="landing"
-                data-url="https://lpadv-pi.vercel.app"
-                data-title="lpadv — Advocacia">
-          <span class="thumb g-5">
-            <span class="mark">A</span>
-            <span class="status status-concept"><span class="sdot"></span>Conceito</span>
-            <img class="shot" alt="Prévia do site lpadv" loading="lazy">
-            <span class="open-pill">Ver prévia ↗</span>
-          </span>
-          <span class="p-body">
-            <span class="p-tag">Landing page · Advocacia</span>
-            <h3>Vance & Aragão Advocacia</h3>
-            <p>Landing page profissional desenvolvida para serviços de advocacia, com foco em conversão e contato direto.</p>
-            <span class="p-cta">Ver projeto
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </span>
-        </button>
 
       </div>
     </div>
@@ -795,8 +786,8 @@ select:focus-visible,textarea:focus-visible{
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow reveal">Modelos prontos</span>
-        <h2 class="reveal">Modelos prontos <em class="grad">por nicho</em></h2>
-        <p class="reveal">Layout testado e fixo, no ar em poucos dias. Você fornece os textos, as fotos e o logo. A estrutura não muda, mas as cores podem ser adptadas ao seu gosto</p>
+        <h2 class="reveal">Modelos prontos <em class="grad">para psicologia</em></h2>
+        <p class="reveal">Layout testado e no ar em poucos dias, por um preço menor. Você envia textos, fotos e logo; a estrutura se mantém e as cores se adaptam ao seu gosto. Todos já vêm adequados às regras do CFP.</p>
       </div>
 
       <div class="steps reveal">
@@ -847,7 +838,7 @@ select:focus-visible,textarea:focus-visible{
             <span class="p-body">
               <span class="p-tag">Modelo · Psicologia</span>
               <h3>Psicologia · Modelo 2</h3>
-              <p>Versão com destaque para especialidades e depoimentos de pacientes.</p>
+              <p>Versão com destaque para áreas de atuação e prova social compatível com o CFP.</p>
               <span class="p-note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 Você troca: textos, fotos e logo
@@ -882,95 +873,11 @@ select:focus-visible,textarea:focus-visible{
         </div> <!-- Fecha projetos psicologia -->
       </div> <!-- Fecha nicho psicologia -->
 
-      <!-- NICHO: ADVOCACIA -->
-      <div class="niche reveal">
-        <div class="niche-head">
-          <span class="nt">
-            <span class="nico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linejoin="round"/></svg>
-            </span>
-            Advocacia
-          </span>
-          <span class="ncount">3 modelos</span>
-        </div>
-
-        <div class="projects">
-
-          <button class="project reveal" data-category="modelo"
-                  data-url="https://lpadvocacia1.vercel.app"
-                  data-title="Modelo Advocacia · 01">
-            <span class="thumb g-1">
-              <span class="mark">01</span>
-              <img class="shot" alt="Prévia do modelo de advocacia 01" loading="lazy">
-              <span class="open-pill">Ver prévia ↗</span>
-            </span>
-            <span class="p-body">
-              <span class="p-tag">Modelo · Advocacia</span>
-              <h3>Advocacia · Modelo 1</h3>
-              <p>Design sóbrio e direto, focado em transmitir credibilidade e listar áreas de atuação.</p>
-              <span class="p-note">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Você troca: textos, fotos e logo
-              </span>
-              <span class="p-cta">Ver modelo
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </span>
-          </button>
-
-          <button class="project reveal" data-category="modelo"
-                  data-url="https://lpadvocacia2.vercel.app"
-                  data-title="Modelo Advocacia · 02">
-            <span class="thumb g-3">
-              <span class="mark">02</span>
-              <img class="shot" alt="Prévia do modelo de advocacia 02" loading="lazy">
-              <span class="open-pill">Ver prévia ↗</span>
-            </span>
-            <span class="p-body">
-              <span class="p-tag">Modelo · Advocacia</span>
-              <h3>Advocacia · Modelo 2</h3>
-              <p>Layout moderno com foco em conversão rápida e contato via WhatsApp.</p>
-              <span class="p-note">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Você troca: textos, fotos e logo
-              </span>
-              <span class="p-cta">Ver modelo
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </span>
-          </button>
-
-          <button class="project reveal" data-category="modelo"
-                  data-url="https://lpadvocacia3.vercel.app"
-                  data-title="Modelo Advocacia · 03">
-            <span class="thumb g-4">
-              <span class="mark">03</span>
-              <img class="shot" alt="Prévia do modelo de advocacia 03" loading="lazy">
-              <span class="open-pill">Ver prévia ↗</span>
-            </span>
-            <span class="p-body">
-              <span class="p-tag">Modelo · Advocacia</span>
-              <h3>Advocacia · Modelo 3</h3>
-              <p>Estrutura focada em construir autoridade para advogados autônomos e especialistas.</p>
-              <span class="p-note">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Você troca: textos, fotos e logo
-              </span>
-              <span class="p-cta">Ver modelo
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </span>
-          </button>
-          
-        </div> <!-- Fecha projetos advocacia -->
-
-        <!-- AVISO EM BREVE (agora fica no final da seção Advocacia, abrangendo a tela toda) -->
-        <div class="niche-soon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
-          Em breve: modelos para Pet, Gastronomia, Odonto e mais...
-        </div>
-
-      </div> <!-- Fecha nicho advocacia -->
+      <!-- Em breve: novos modelos de psicologia -->
+      <div class="niche-soon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        Em breve: modelos para psicologia infantil, casal &amp; família e avaliação psicológica...
+      </div>
     </div> <!-- Fecha wrap da section -->
   </section>
 
@@ -993,7 +900,7 @@ select:focus-visible,textarea:focus-visible{
         <h2 class="reveal">Prazer, eu sou o <em class="grad">Augusto</em>.</h2>
         <p class="reveal">Minha jornada no código começou com um objetivo claro: eliminar tarefas repetitivas. Criando automações em Python e desenvolvendo soluções web com HTML, CSS e JavaScript, descobri como fazer processos complexos rodarem no piloto automático. Foi justamente nessa intersecção entre lógica e eficiência que me apaixonei pelo desenvolvimento web.</p>
         <blockquote class="about-quote reveal">Foi automatizando que me apaixonei pelo desenvolvimento web — e decidi transformar isso em carreira.</blockquote>
-        <p class="reveal">Hoje, uno minha sólida base técnica de engenharia ao design estratégico para criar landing pages e sites sob medida. Para mim, um site de alto nível vai além da estética: é a combinação exata de estrutura inteligente, performance impecável e clareza visual trabalhando juntas para impulsionar o crescimento do seu negócio.</p>
+        <p class="reveal">Hoje, uno minha sólida base técnica de engenharia ao design estratégico para criar landing pages e sites sob medida. Para mim, um site de alto nível vai além da estética: é a combinação exata de estrutura inteligente, performance impecável e clareza visual. E, mais recentemente, escolhi um foco — psicólogas que querem um site à altura do seu trabalho: acolhedor, que agenda pacientes e que respeita a ética do CFP.</p>
         <div class="stack reveal">
           <span class="stack-title">Com o que eu trabalho</span>
           <ul class="stack-list">
@@ -1065,10 +972,10 @@ select:focus-visible,textarea:focus-visible{
             <label for="servico">Tipo de projeto</label>
             <select id="servico">
               <option value="">Selecione…</option>
-              <option>Landing page</option>
-              <option>Site institucional</option>
-              <option>Loja virtual</option>
-              <option>Outro</option>
+              <option>Modelo pronto (psicologia)</option>
+              <option>Site sob medida</option>
+              <option>Página de agendamento</option>
+              <option>Ainda não sei</option>
             </select>
           </div>
           <div class="field">
@@ -1199,7 +1106,7 @@ function initSpace(){
   renderer.setSize(innerWidth, innerHeight);
   container.appendChild(renderer.domElement);
 
-  const COUNT = 1900;
+  const COUNT = 1300;
   const positions = new Float32Array(COUNT*3);
   const colors    = new Float32Array(COUNT*3);
   const c1 = new THREE.Color('#4f7cf6');
@@ -1218,7 +1125,7 @@ function initSpace(){
 
     const t = Math.random();
     const col = t < 0.5 ? c1.clone().lerp(c2, t*2) : c2.clone().lerp(c3, (t-0.5)*2);
-    if (Math.random() < 0.55) col.lerp(white, 0.65);
+    if (Math.random() < 0.42) col.lerp(white, 0.55);
     colors[i3]=col.r; colors[i3+1]=col.g; colors[i3+2]=col.b;
   }
 
@@ -1227,7 +1134,7 @@ function initSpace(){
   geo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
 
   const mat = new THREE.PointsMaterial({
-    size:2.3, vertexColors:true, transparent:true, opacity:.92,
+    size:1.9, vertexColors:true, transparent:true, opacity:.7,
     depthWrite:false, blending:THREE.AdditiveBlending, sizeAttenuation:true
   });
   const points = new THREE.Points(geo, mat);
@@ -1252,8 +1159,8 @@ function initSpace(){
     if (!REDUCED){
       tx += (mx - tx)*0.04;
       ty += (my - ty)*0.04;
-      points.rotation.y = t*0.018 + tx*0.4;
-      points.rotation.x = ty*0.28 + Math.sin(t*0.1)*0.04;
+      points.rotation.y = t*0.010 + tx*0.22;
+      points.rotation.x = ty*0.16 + Math.sin(t*0.1)*0.03;
     }
     renderer.render(scene, camera);
   })();
