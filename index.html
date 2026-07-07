@@ -739,10 +739,10 @@ p{color:var(--ink-72)}
     </div>
     
   <div class="pf-filters" id="pfFilters" role="tablist" aria-label="Filtrar projetos">
-    <button class="pf-filter active" data-filter="todos" role="tab" aria-selected="true">Todos <span class="n">6</span></button>
-    <button class="pf-filter" data-filter="personalizado" role="tab" aria-selected="false">Personalizados <span class="n">2</span></button>
-    <button class="pf-filter" data-filter="pronto" role="tab" aria-selected="false">Modelos prontos <span class="n">4</span></button>
-  </div>
+    <button class="pf-filter active" data-filter="todos" role="tab" aria-selected="true">Todos <span class="n" id="count-todos">0</span></button>
+    <button class="pf-filter" data-filter="personalizado" role="tab" aria-selected="false">Personalizados <span class="n" id="count-personalizado">0</span></button>
+    <button class="pf-filter" data-filter="pronto" role="tab" aria-selected="false">Modelos prontos <span class="n" id="count-pronto">0</span></button>
+  </div> 
 
     <!-- Cards injetados via JS a partir do array `projetos` (fim do arquivo) -->
     <div class="pf-grid" id="pfGrid"></div>
@@ -1137,7 +1137,7 @@ p{color:var(--ink-72)}
       url: 'https://templatepsicanalisepsicologia.vercel.app/',
       cat: 'personalizado',
       desc: 'Presença digital de estética serena para psicanálise e psicologia clínica, conduzindo o visitante com clareza até o primeiro contato.',
-      tags: ['Personalizado', 'Responsivo', 'SEO'],
+      tags: ['Personalizado', 'Responsivo', 'SEO'], // Corrigido aqui de 'Modelo pronto' para 'Personalizado'
       cover: 'linear-gradient(145deg,#1B2542,#33437A)',
       shot: ''
     },
@@ -1175,13 +1175,26 @@ p{color:var(--ink-72)}
       titulo: 'Consultório ACT',
       dom: 'templateactpsicologia.vercel.app',
       url: 'https://templateactpsicologia.vercel.app/',
-      cat: 'pronto',
+      cat: 'personalizado',
       desc: 'Design focado na Terapia de Aceitação e Compromisso, aliando usabilidade, objetividade e acolhimento clínico.',
       tags: ['personalizado', 'ACT', 'SEO'],
       cover: 'linear-gradient(145deg,#2F5A6B,#1E2A4A)',
       shot: ''
     }
   ];
+
+  // ---- ATUALIZAR CONTADORES DO PORTFÓLIO ----
+  var totalTodos = projetos.length;
+  var totalPersonalizados = projetos.filter(function(p) { return p.cat === 'personalizado'; }).length;
+  var totalProntos = projetos.filter(function(p) { return p.cat === 'pronto'; }).length;
+
+  var elTodos = document.getElementById('count-todos');
+  var elPers = document.getElementById('count-personalizado');
+  var elPronto = document.getElementById('count-pronto');
+
+  if(elTodos) elTodos.textContent = totalTodos;
+  if(elPers) elPers.textContent = totalPersonalizados;
+  if(elPronto) elPronto.textContent = totalProntos;
 
   function catLabel(c){ return c === 'personalizado' ? 'Projeto personalizado' : 'Modelo pronto'; }
   /* print automatico do site (serviço mShots do WordPress, gratuito e sem chave) */
