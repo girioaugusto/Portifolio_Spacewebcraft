@@ -1132,6 +1132,16 @@ p{color:var(--ink-72)}
       shot: ''
     },
     {
+      titulo: 'Psicóloga Catarina Daud',
+      dom: 'psicatarinadaud.com',
+      url: 'https://www.psicatarinadaud.com/',
+      cat: 'pronto',
+      desc: 'Modelo pronto para quem precisa entrar no ar rapidamente, com as seções essenciais e uma jornada objetiva de conversão.',
+      tags: ['Domínio próprio', 'Modelo pronto', 'SEO', 'Google ADS'],
+      cover: 'linear-gradient(145deg,#B65F32,#D98A54)',
+      shot: ''
+    },
+    {
       titulo: 'Consultório de Psicanálise',
       dom: 'templatepsicanalisepsicologia.vercel.app',
       url: 'https://templatepsicanalisepsicologia.vercel.app/',
@@ -1180,7 +1190,8 @@ p{color:var(--ink-72)}
       tags: ['personalizado', 'ACT', 'SEO'],
       cover: 'linear-gradient(145deg,#2F5A6B,#1E2A4A)',
       shot: ''
-    }
+    },
+
   ];
 
   // ---- ATUALIZAR CONTADORES DO PORTFÓLIO ----
@@ -1198,7 +1209,9 @@ p{color:var(--ink-72)}
 
   function catLabel(c){ return c === 'personalizado' ? 'Projeto personalizado' : 'Modelo pronto'; }
   /* print automatico do site (serviço mShots do WordPress, gratuito e sem chave) */
-  function shotUrl(u){ return 'https://s.wordpress.com/mshots/v1/' + encodeURIComponent(u) + '?w=1200&h=750'; }
+  function shotUrl(u){ 
+  return 'https://api.microlink.io/?url=' + encodeURIComponent(u) + '&screenshot=true&meta=false&embed=screenshot.url'; 
+}
 
   var grid = document.getElementById('pfGrid');
   grid.innerHTML = projetos.map(function(p){
