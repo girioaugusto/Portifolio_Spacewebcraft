@@ -436,6 +436,19 @@ p{color:var(--ink-72)}
 .note-bar svg{width:18px;height:18px;stroke:var(--accent-deep);flex:none}
 .note-bar b{color:var(--ink);font-weight:600}
 
+/* Notas explicativas · Hospedagem & Domínio */
+.note-info{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:920px;margin-inline:auto}
+.note-info-card{display:flex;align-items:flex-start;gap:16px;background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:24px 26px;box-shadow:var(--sh-sm);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s}
+.note-info-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--line)}
+.note-info-ic{width:44px;height:44px;flex:none;border-radius:13px;background:rgba(237,162,119,.12);border:1px solid var(--line);display:grid;place-items:center}
+.note-info-ic svg{width:20px;height:20px;stroke:var(--accent-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.note-info-body{display:flex;flex-direction:column}
+.note-info-label{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-55)}
+.note-info-value{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:600;color:var(--ink);line-height:1.15;margin-top:2px}
+.note-info-value small{font-family:'Inter',sans-serif;font-size:.8rem;font-weight:500;color:var(--ink-55)}
+.note-info-desc{font-size:.9rem;color:var(--ink-72);line-height:1.55;margin-top:8px}
+.note-info-desc b{color:var(--ink);font-weight:600}
+
 /* ---------- 14. FAQ ---------- */
 .faq{max-width:780px;margin-inline:auto}
 .faq-item{border-bottom:1px solid var(--line-soft)}
@@ -524,6 +537,7 @@ p{color:var(--ink-72)}
   .pf-grid{grid-template-columns:1fr}
   .plans{grid-template-columns:1fr;max-width:460px}
   .plan--feature{order:-1}
+  .note-info{grid-template-columns:1fr;max-width:460px}
   .paths{grid-template-columns:1fr}
 }
 @media(max-width:560px){
@@ -823,17 +837,17 @@ p{color:var(--ink-72)}
       <div class="step reveal">
         <div class="step-num">02</div>
         <h3>Escolha entre modelo pronto ou personalizado</h3>
-        <p>Veja qual faz mais sentido para o seu momento — e o prazo de cada uma:</p>
+        <p>Veja qual faz mais sentido para o seu momento e o prazo de cada uma:</p>
         <div class="paths">
           <div class="path">
             <h4><span class="dot"></span>Modelo pronto</h4>
-            <p>Você envia fotos, logo, identidade visual e textos, e eu encaixo tudo em uma estrutura já validada e de alta conversão. O layout já é consolidado; a personalização fica nos seus conteúdos, cores e marca.</p>
+            <p>Você envia fotos, logo, identidade visual e textos, e eu encaixo tudo em uma estrutura já validada e de alta conversão. O layout já é consolidado. A personalização fica nos seus conteúdos, cores e marca.</p>
             <div class="ideal"><b>Ideal para</b> quem quer entrar no ar rápido, investir menos e já tem os materiais em mãos.</div>
             <div class="prazo"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>2 a 3 dias úteis</b> após o envio dos materiais necessários</span></div>
           </div>
           <div class="path">
             <h4><span class="dot"></span>Modelo personalizado</h4>
-            <p>Começamos por um briefing completo para entender sua história, seu tom de voz e seus objetivos, e eu crio uma estrutura exclusiva do zero — identidade, seções e jornada de agendamento pensadas só para você.</p>
+            <p>Começamos por um briefing completo para entender sua história, seu tom de voz e seus objetivos, e eu crio uma estrutura exclusiva do zero, com identidade, seções e jornada de agendamento pensadas só para você.</p>
             <div class="ideal"><b>Ideal para</b> quem quer se diferenciar, tem uma proposta específica e busca uma presença única.</div>
             <div class="prazo"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>7 dias úteis</b> após o envio das informações e arquivos necessários</span></div>
           </div>
@@ -895,7 +909,7 @@ p{color:var(--ink-72)}
           <span class="cur">R$</span>
           <span class="val" data-prices="390,450,490">390</span>
         </div>
-        <p class="plan-note-price">Valor único · domínio incluso · <span data-years="1 ano,2 anos,3 anos">1 ano</span></p>
+        <p class="plan-note-price">Valor único (domínio incluso) + R$ 40/mês de hospedagem &amp; manutenção</p>
         <hr>
         <ul class="plan-feats">
           <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Landing Page completa</li>
@@ -904,7 +918,8 @@ p{color:var(--ink-72)}
           <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>SEO essencial</li>
           <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Integração com WhatsApp</li>
           <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Publicação no ar</li>
-          <li class="off"><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></span>Plano mensal de alterações</li>
+          <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Hospedagem &amp; Manutenção básica por R$ 40/mês</li>
+          <li class="off"><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></span>Modificações inclusas na mensalidade</li>
         </ul>
         <a class="btn btn--ghost btn--block" href="https://wa.me/5516999948990" data-wa="Olá! Tenho interesse no Modelo Pronto de Landing Page da SpaceWebCraft.">Quero este modelo</a>
       </article>
@@ -918,7 +933,7 @@ p{color:var(--ink-72)}
           <span class="cur">R$</span>
           <span class="val" data-prices="790,850,890">790</span>
         </div>
-        <p class="plan-note-price">Valor único · domínio incluso · <span data-years="1 ano,2 anos,3 anos">1 ano</span></p>
+        <p class="plan-note-price">Valor único (domínio incluso) + hospedagem a partir de R$ 40/mês</p>
         <hr>
         <ul class="plan-feats">
           <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Design 100% exclusivo</li>
@@ -929,6 +944,7 @@ p{color:var(--ink-72)}
           <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Integrações sob medida</li>
           <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Integração com WhatsApp</li>
           <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Publicação no ar</li>
+          <li><span class="fk"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Hospedagem por R$ 40/mês, ou R$ 65/mês com 1 modificação pequena ou média por mês inclusa</li>
         </ul>
         <a class="btn btn--primary btn--block" href="https://wa.me/5516999948990" data-wa="Olá! Gostaria de solicitar um orçamento do Modelo Personalizado da SpaceWebCraft.">Solicitar orçamento</a>
       </article>
@@ -967,9 +983,23 @@ p{color:var(--ink-72)}
       </article>
     </div>
 
-    <div class="note-bar reveal">
-      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-      Após o vencimento do domínio, a renovação anual é de <b>R$64,99</b>.
+    <div class="note-info reveal">
+      <div class="note-info-card">
+        <span class="note-info-ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.6-3.1 7.7-7 9-3.9-1.3-7-4.4-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <div class="note-info-body">
+          <span class="note-info-label">Hospedagem &amp; Manutenção</span>
+          <span class="note-info-value">A partir de R$ 40<small> /mês</small></span>
+          <p class="note-info-desc">Mantém sua Landing Page no ar com alta velocidade, certificado <b>SSL</b>, <b>backups</b> automáticos e suporte. São <b>R$ 40/mês</b> nos dois planos. No Personalizado, você ainda pode escolher o plano de <b>R$ 65/mês</b>, que já inclui 1 modificação pequena ou média por mês.</p>
+        </div>
+      </div>
+      <div class="note-info-card">
+        <span class="note-info-ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg></span>
+        <div class="note-info-body">
+          <span class="note-info-label">Renovação do domínio</span>
+          <span class="note-info-value">R$ 64,99<small> /ano</small></span>
+          <p class="note-info-desc">O plano já inclui o domínio pelo período escolhido nos planos (<b><span data-years="1 ano,2 anos,3 anos">1 ano</span></b>). Só quando esse período terminar é que a renovação passa a ser cobrada anualmente.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1001,7 +1031,7 @@ p{color:var(--ink-72)}
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">O domínio e a hospedagem estão inclusos?<span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>Sim, o valor de cada plano já inclui o domínio pelo período escolhido. Após esse período, a renovação anual é de R$64,99.</p></div>
+        <div class="faq-a"><p>A criação da sua página já inclui a taxa de registro do domínio pelo período que você escolher nos planos (1, 2 ou 3 anos). Encerrado esse período, a renovação do domínio passa a ser de R$ 64,99/ano. Para manter a Landing Page no ar com alta velocidade, certificado SSL, backups e suporte, a Hospedagem &amp; Manutenção básica é de R$ 40,00/mês, com as modificações cobradas à parte. No Modelo Personalizado, você ainda pode optar pelo plano de R$ 65,00/mês, que já inclui a hospedagem e 1 modificação pequena ou média por mês.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Qual a diferença entre o modelo pronto e o personalizado?<span class="faq-ic" aria-hidden="true"></span></button>
@@ -1127,6 +1157,16 @@ p{color:var(--ink-72)}
       url: 'https://www.psithamyresanflorian.com/',
       cat: 'personalizado',
       desc: 'Projeto sob medida com domínio próprio para uma psicóloga em atividade: identidade, textos e caminho de agendamento pensados para o público dela.',
+      tags: ['Domínio próprio', 'Personalizado', 'SEO', 'Google ADS'],
+      cover: 'linear-gradient(145deg,#B65F32,#D98A54)',
+      shot: ''
+    },
+    {
+      titulo: 'Psicólogo Lucas Andrade',
+      dom: 'lplucasandrade.vercel.app',
+      url: 'https://lplucasandrade.vercel.app/',
+      cat: 'personalizado',
+      desc: 'Projeto sob medida com domínio próprio para um psicólogo em atividade: identidade, textos e caminho de agendamento pensados para o público dele.',
       tags: ['Domínio próprio', 'Personalizado', 'SEO', 'Google ADS'],
       cover: 'linear-gradient(145deg,#B65F32,#D98A54)',
       shot: ''
